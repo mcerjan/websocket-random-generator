@@ -20,9 +20,7 @@ function randomBoolean (){
 	return randomNumber;
 }
 
-var version = 3;
 var names = ["A", "B", "c", "D", "e", "F", "g", "H", "i", "J", "k", "L", "m", "N", "o", "P", "r", "S", "t", "U", "v", "Z", "x", "Y", "z"];
-
 var nickName = "";
 for(var a = 1; a <= 5; a++){
 	var num = Math.floor(Math.random() * (names.length - 1));
@@ -36,8 +34,6 @@ server.emit('joinnick', nickName);
 console.log(nickName);
 
 $('form').submit(function(){
-	var regName = /^\/nick ([a-zA-Z0-9]{0,20})/g;
-	var ray1 = regName.exec($('#m').val());
 	var mojObjekt = {
 					'DATETIME' : randomDate(new Date(2012, 0, 1), new Date()),
 					'USER_ID': ID(),
@@ -47,7 +43,6 @@ $('form').submit(function(){
 					};
 	chat.emit('chat', mojObjekt);
 	console.log('Sending: ', JSON.stringify(mojObjekt));
-	
 	return false;
  });
 	  	  
